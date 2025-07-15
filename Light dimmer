@@ -1,0 +1,31 @@
+//Define analog pin
+int potPin = 15; //Pin connected to potentiometer
+int LED_PIN = 19; //Pin connected to LED
+
+void setup() {
+  // put your setup code here, to run once:
+ //Start Serial Monitor at 115200 baud rate
+  Serial.begin(115200);
+
+  //Set the LED pin as output
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int potValue = analogRead(potPin);
+  //Read analog value (0-4095)
+
+  //Print value
+  Serial.println(potValue);
+
+  //Map the potentiometer value(0-4095) to LED brightness (0-255)
+  int brightness = map(potValue, 0, 4095, 0, 255);
+
+  //Control the LED brightness 
+  analogWrite(LED_PIN, brightness);
+
+  //Delay for readabiliity
+  delay(500);
+  
+}
