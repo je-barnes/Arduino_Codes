@@ -27,5 +27,4 @@ void loop() {
 
   //Delay for readabiliity
   delay(500);
-  
 }
